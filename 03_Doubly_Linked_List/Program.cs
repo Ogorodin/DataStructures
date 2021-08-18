@@ -14,9 +14,20 @@ namespace _03_Doubly_Linked_List
             list.InsertLast(3000);
             list.InsertLast(4000);
 
+            Console.WriteLine("------------");
+            Console.WriteLine(list.Last.Data);
+            Console.WriteLine("------------");
+
             list.DeleteLast();
 
+            list.InsertLast(10000);
+
+            Console.WriteLine("------------");
+            Console.WriteLine(list.Last.Data);
+            Console.WriteLine("------------");
+
             list.DisplayList();
+
         }
 
     }
@@ -26,6 +37,14 @@ namespace _03_Doubly_Linked_List
 
         private Node _first;
         private Node _last;
+
+        public Node Last
+        {
+            get
+            {
+                return _last;
+            }
+        }
 
         public int Length
         {
@@ -128,7 +147,8 @@ namespace _03_Doubly_Linked_List
             else
             {
                 _last.Previous.Next = null;
-                _last.Previous = _last;
+                _last = _last.Previous;
+
             }
         }
 
